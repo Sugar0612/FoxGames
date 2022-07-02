@@ -59,7 +59,7 @@ public class PlayerControlloer : MonoBehaviour
 
     void SwitchAnim() {
         anim.SetBool("is_idle", false);
-
+       
         if(anim.GetBool("is_jumping"))
         {
             if(rb.velocity.y < 0)
