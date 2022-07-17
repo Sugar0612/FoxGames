@@ -13,6 +13,8 @@ public class PlayerControlloer : MonoBehaviour
     public float speed;
     public float jumpForce;
 
+    public int cherry_count = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,6 +75,15 @@ public class PlayerControlloer : MonoBehaviour
         {
             anim.SetBool("is_falling", false);
             anim.SetBool("is_idle", true);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "collectible")
+        {
+            Destroy(collision.gameObject);
+            cherry_count += 1;
         }
     }
 }
